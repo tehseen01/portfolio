@@ -1,0 +1,76 @@
+@import "./config";
+
+.work {
+  align-items: flex-start;
+  max-width: 90vw;
+  margin: auto;
+  padding-top: 5rem;
+  min-height: 100vh;
+  text-align: center;
+  p {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    color: $celadon-blue;
+    font-size: 3rem;
+  }
+}
+
+article {
+  margin-top: 4rem;
+
+  .project-container {
+    display: grid;
+    gap: 0.2rem;
+
+    @include desktop() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project {
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      &:hover {
+        div {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      div {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, #000000e0, #00000033);
+        display: flex;
+        justify-content: space-between;
+        visibility: hidden;
+        transition: $easeOut;
+        opacity: 0;
+        padding: 2rem;
+
+        a {
+          font-size: 1rem;
+          color: $light;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+
+        .github-link {
+          align-self: end;
+          justify-self: end;
+        }
+
+        .live-link {
+          align-self: end;
+          justify-self: left;
+        }
+      }
+    }
+  }
+}

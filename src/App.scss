@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;600;800&display=swap");
+@import "../src/SASS/config";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture {
+  width: 100%;
+  display: block;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: $dark;
+  color: $light;
+}
+
+input,
+textarea {
+  font-size: inherit;
+  font-family: "Open Sans", sans-serif;
+}

@@ -1,0 +1,14 @@
+$dark: #292a2e;
+$light: #cfcaca;
+$honeydew: #f1faeeff;
+$powder-blue: #a8dadcff;
+$celadon-blue: #457b9dff;
+$charcoal: #264653ff;
+
+$easeOut: 0.5s ease-out;
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
