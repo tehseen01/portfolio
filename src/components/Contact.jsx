@@ -1,36 +1,37 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
   faInstagram,
   faCodepen,
-} from "@fortawesome/free-brands-svg-icons";
-import React, { useRef } from "react";
-import "../SASS/contact.scss";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import emailjs from "@emailjs/browser";
+} from '@fortawesome/free-brands-svg-icons'
+import React, { useRef } from 'react'
+import '../SASS/contact.scss'
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
-  const refForm = useRef();
+  const refForm = useRef()
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     emailjs
       .sendForm(
-        "service_sz6s13m",
-        "template_7oe509h",
+        'service_sz6s13m',
+        'template_7oe509h',
         refForm.current,
-        "xvVMqXY1DKEFAjurd"
+        'xvVMqXY1DKEFAjurd'
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        () => {
+          alert('Message successfully sent!')
+          window.location.reload(false)
         },
-        (error) => {
-          console.log(error.text);
+        () => {
+          alert('Failed to send message, please try again')
         }
-      );
-  };
+      )
+  }
 
   return (
     <main className="contact">
@@ -72,18 +73,37 @@ const Contact = () => {
         </div>
       </div>
       <div className="contact-form">
-        <form action="/" autoComplete="off" ref={refForm} onSubmit={sendEmail}>
+        <form autoComplete="off" ref={refForm} onSubmit={sendEmail}>
           <label htmlFor="name">Full Name</label>
-          <input type="text" id="name" placeholder="Type Name" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Type Name"
+          />
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Type Email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Type Email"
+            required
+          />
           <label htmlFor="suject">Subject</label>
-          <input type="text" id="subject" placeholder="Subject" />
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            placeholder="Subject"
+            required
+          />
           <label htmlFor="message">Message</label>
           <textarea
-            name="textaria"
+            name="message"
             id="message"
             placeholder="Enter your Message"
+            required
           ></textarea>
           <div className="btn-box">
             <button type="submit" className="submit-btn">
@@ -93,7 +113,7 @@ const Contact = () => {
         </form>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
