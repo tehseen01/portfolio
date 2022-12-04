@@ -8,8 +8,10 @@ import React, { useRef } from 'react'
 import '../SASS/contact.scss'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import emailjs from '@emailjs/browser'
+import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
+  const navigate = useNavigate()
   const refForm = useRef()
 
   const sendEmail = (e) => {
@@ -25,7 +27,7 @@ const Contact = () => {
       .then(
         () => {
           alert('Message successfully sent!')
-          window.location.reload(false)
+          navigate('/')
         },
         () => {
           alert('Failed to send message, please try again')
